@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
 // 设置拦截器，对公共部分进行抽象
 axios.interceptors.response.use(
-  res => res.data,
+  res => res,
   err => {
     console.log(err, '网络错误')
   }

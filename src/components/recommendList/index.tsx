@@ -4,21 +4,29 @@ import {
   List,
   ListItem
 } from './style';
-import { IRecommend } from '../../common';
 import { getCount } from "../../api/utils";
+import { } from 'immutable';
+
+export interface IRecommend {
+  id: number;
+  picUrl: string;
+  playCount: number;
+  name: string;
+}
 
 interface IProps {
   recommendList: Array<IRecommend>;
 }
 
 function RecommendList({recommendList}: IProps) {
-
+  // console.log(recommendList);
   return (
     <ListWrapper>
       <h1 className="title"> 推荐歌单 </h1>
       <List>
         {
           recommendList.map((item, index) => {
+            // console.log(item);
             return (
               <ListItem key={index}>
                 <div className="img_wrapper">

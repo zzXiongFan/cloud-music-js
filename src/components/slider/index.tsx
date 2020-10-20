@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { IBanner } from '../../common';
 import { SliderContainer } from './style';
 import "swiper/dist/css/swiper.css";
 import Swiper from 'swiper';
+
+export interface IBanner {
+  imageUrl: string
+}
 
 interface IProps {
   bannerList: Array<IBanner>

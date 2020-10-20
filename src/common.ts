@@ -9,15 +9,4 @@ export interface IRoutePath {
   routes?: Array<IRoutePath>
 };
 
-export interface IBanner {
-  imageUrl: string
-}
-
-export interface IRecommend {
-  id: number;
-  picUrl: string;
-  playCount: number;
-  name: string;
-}
-
 export type IRoute = Array<IRoutePath>;

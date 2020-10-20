@@ -9,9 +9,9 @@ export const SliderContainer = styled.div`
   /* background-color: white; */
   .before {
     position: absolute;
-    top: 0px;
+    top: -300px;
     /* 此处应该是相对于宽度单位 */
-    height: 60%;
+    height: 400px;
     width: 100%;
     background-color: ${style["theme-color"]};
   }

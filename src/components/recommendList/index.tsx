@@ -6,6 +6,8 @@ import {
 } from './style';
 import { getCount } from "../../api/utils";
 import { } from 'immutable';
+// 加入懒加载
+import LazyLoad from 'react-lazyload'
 
 export interface IRecommend {
   id: number;
@@ -31,7 +33,9 @@ function RecommendList({recommendList}: IProps) {
               <ListItem key={index}>
                 <div className="img_wrapper">
                   <div className="decorate"></div>
-                  <img src={item.picUrl + "?param=300x300"} alt=""/>
+                  <LazyLoad placeholder={<img width="100%" height="100%" src={require ('./music.png')} alt="music"/>}>
+                    <img src={item.picUrl + "?param=300x300"} width="100%" height="100%" alt="music"/>
+                  </LazyLoad>
                   <div className="play_count">
                     <i className="iconfont play">&#xe885;</i>
                     <span className="count">{getCount(item.playCount)}</span>

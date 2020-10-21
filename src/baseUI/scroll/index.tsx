@@ -79,7 +79,7 @@ const Scroll = forwardRef<ScrollHandles, IProps>((props, ref) => {
   
   // 绑定各类方法
   useEffect(() => {
-    if(!bScroll || !onscroll) return;
+    if(!bScroll || !onScroll) return;
     bScroll.on ('scroll', (scroll: any) => {
       onScroll (scroll);
     })

@@ -18,7 +18,7 @@ export const Top = styled.div`
 `;
 
 export const Tab = styled.div`
-  height: 40px;
+  height: 44px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

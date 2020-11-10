@@ -10,6 +10,8 @@ import { IRecommendState } from './store/constants';
 import { AppState } from '../../store/reducer';
 // 设置懒加载
 import { forceCheck } from 'react-lazyload';
+// 加入加载页面
+import Loading from '../../baseUI/loading';
 
 function Recommend() {
   // 获取状态参数: 此处类型判断有问题
@@ -36,6 +38,7 @@ function Recommend() {
   // @ts-ignore
   return (
     <Content>
+      {enterLoading ? <Loading /> : null}
       <Scroll onScroll={forceCheck}>
         <div> 
           <Slider bannerList={bannerListJS} />

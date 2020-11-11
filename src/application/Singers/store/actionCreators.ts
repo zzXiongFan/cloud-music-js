@@ -13,9 +13,6 @@ import {
 } from 'immutable';
 // 类型化
 import { Dispatch } from 'redux';
-// import { IState } from './reducer';
-
-// TODO: 完善参数Type
 
 export const changeCategory = (data: string): IAction<string> => ({
   type: actionTypes.CHANGE_CATOGORY,

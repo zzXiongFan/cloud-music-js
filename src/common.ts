@@ -1,4 +1,3 @@
-import { type } from 'os';
 // 类型定义
 import React from 'react';
 export interface IRoutePath {

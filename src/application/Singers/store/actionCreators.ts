@@ -14,7 +14,6 @@ import {
 // 类型化
 import { Dispatch } from 'redux';
 // import { IState } from './reducer';
-// import { type } from 'os';
 
 // TODO: 完善参数Type
 
@@ -93,7 +92,7 @@ export const refreshMoreHotSingerList = () => {
 export const getSingerList = () => {
   return (dispatch: Dispatch, getState: IGetState) => {
     // 请求数据
-    const offset = getState().getIn(['singers', 'listOffset']);
+    // const offset = getState().getIn(['singers', 'listOffset']);
     const category = getState().getIn(['singers', 'category']);
     const alpha = getState().getIn(['singers', 'alpha']);
     // console.log(category);

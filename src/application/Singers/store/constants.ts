@@ -1,4 +1,5 @@
 import { List, Record } from 'immutable';
+import { IArtists, Pick} from '../../../api/constants';
 
 export const actionTypes = {
   CHANGE_CATOGORY: 'home/singers/CHANGE_CATEGORY',
@@ -10,18 +11,8 @@ export const actionTypes = {
   CHANGE_PULLDOWN_LOADING : 'singers/PULLDOWN_LOADING',
 }
 
-// export const CHANGE_SINGER_LIST = 'singers/CHANGE_SINGER_LIST';
-// export const CHANGE_PAGE_COUNT = 'singers/PAGE_COUNT';
-// export const CHANGE_ENTER_LOADING = 'singers/ENTER_LOADING';
-// export const CHANGE_PULLUP_LOADING = 'singers/PULLUP_LOADING';
-// export const CHANGE_PULLDOWN_LOADING = 'singers/PULLDOWN_LOADING';
-
 // 本页面状态
-export interface ISinger {
-  picUrl: string,
-  name: string,
-  accountId: Number,
-}
+export type ISinger = Pick<IArtists, 'picUrl' | 'name' | 'accountId'>
 
 export interface IStateJS {
   alpha: string,

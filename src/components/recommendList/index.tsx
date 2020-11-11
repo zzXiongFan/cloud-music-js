@@ -8,16 +8,13 @@ import { getCount } from "../../api/utils";
 import { } from 'immutable';
 // 加入懒加载
 import LazyLoad from 'react-lazyload'
+// 引入顶级 api 类型
+import { Pick, IPersonalized} from '../../api/constants';
 
-export interface IRecommend {
-  id: number;
-  picUrl: string;
-  playCount: number;
-  name: string;
-}
+export type ICRecommend = Pick<IPersonalized, 'id' | 'picUrl' | 'playCount' | 'name'>;
 
 interface IProps {
-  recommendList: Array<IRecommend>;
+  recommendList: Array<ICRecommend>;
 }
 
 function RecommendList({recommendList}: IProps) {

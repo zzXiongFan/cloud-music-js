@@ -5,8 +5,8 @@ import { Content } from './style';
 import Scroll from '../../baseUI/scroll';
 // 设置组件间的关联
 import { useSelector, useDispatch } from "react-redux";
-import * as actionTypes from './store/actionCreators';
-import { IRecommendState } from './store/constants';
+import { getBannerList, getRecommendList } from './store/actionCreators';
+import { IRecommendStateJS } from './store/constants';
 import { AppState } from '../../store/reducer';
 // 设置懒加载
 import { forceCheck } from 'react-lazyload';
@@ -15,11 +15,11 @@ import Loading from '../../baseUI/loading';
 
 function Recommend() {
   // 获取状态参数: 此处类型判断有问题
-  const { bannerList, recommendList, enterLoading } = useSelector<AppState, IRecommendState>((state) => ({
+  const { bannerList, recommendList, enterLoading } = useSelector<AppState, IRecommendStateJS>((state) => ({
     bannerList: state.getIn (['recommend', 'bannerList']),
     recommendList: state.getIn (['recommend', 'recommendList']),
     enterLoading: state.getIn (['recommend', 'enterLoading']),
-  } as IRecommendState));
+  } as IRecommendStateJS));
 
   // 获取 dispatch
   const dispatch = useDispatch();
@@ -30,8 +30,8 @@ function Recommend() {
   // console.log(bannerList, bannerListJS);
 
   useEffect (() => {
-    dispatch( actionTypes.getBannerList() );
-    dispatch( actionTypes.getRecommendList() );
+    dispatch( getBannerList() );
+    dispatch( getRecommendList() );
     //eslint-disable-next-line
   }, []);
 

@@ -1,6 +1,5 @@
-import * as actionTypes from './constants';
 import { fromJS } from 'immutable';
-import { IRecommendState, IAction } from './constants';
+import { actionTypes, IRecommendState, IAction } from './constants';
 
 // 设置默认值
 const defaultState = fromJS({

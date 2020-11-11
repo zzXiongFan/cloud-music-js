@@ -1,32 +1,28 @@
 // 从根组件导入类型定义 
-import { List } from 'immutable';
+import { List, Record } from 'immutable';
+// 导入组件类型
+import { ICRecommend as ICRecommend_ } from '../../../components/recommendList';
+import { ICBanner as ICBanner_ } from '../../../components/slider';
 
-export const CHANGE_BANNER = 'recommend/CHANGE_BANNER';
-
-export const CHANGE_RECOMMEND_LIST = 'recommend/RECOMMEND_LIST';
-
-export const CHANGE_ENTER_LOADING = 'recommend/CHANGE_ENTER_LOADING';
-
-
-// 内部类型定义
-export interface IBanner {
-  imageUrl: string
+export const actionTypes = {
+  CHANGE_BANNER: 'recommend/CHANGE_BANNER',
+  CHANGE_RECOMMEND_LIST: 'recommend/RECOMMEND_LIST',
+  CHANGE_ENTER_LOADING: 'recommend/CHANGE_ENTER_LOADING',
 }
 
-export interface IRecommend {
-  id: number;
-  picUrl: string;
-  playCount: number;
-  name: string;
-}
+// 类型导出
+export type ICRecommend = ICRecommend_;
+export type ICBanner = ICBanner_;
 
-export interface IRecommendState extends Map<string, any> {
-  bannerList: List<IBanner>,
-  recommendList: List<IRecommend>,
+export interface IRecommendStateJS {
+  bannerList: List<ICRecommend>,
+  recommendList: List<ICRecommend>,
   enterLoading: boolean,
 }
 
-export interface IAction {
+export type IRecommendState = Record<IRecommendStateJS>;
+
+export interface IAction<T extends unknown = any>{
   type: string,
-  data: any
+  data: T
 }

@@ -1,18 +1,16 @@
-import * as actionTypes from './constants';
-// 导入 immutable 数据操作API
 import { fromJS } from 'immutable';
 import { getBannerRequest, getRecommendListRequest } from '../../../api/request';
 // 导入类型定义文件
-import { IBanner, IRecommend} from '../store/constants';
+import { ICBanner, ICRecommend, actionTypes } from './constants';
 // 引入 dispatch 定义类型
 import { Dispatch } from 'redux';
 
-export const changeBannerList = (data: IBanner[]) => ({
+export const changeBannerList = (data: ICBanner[]) => ({
   type: actionTypes.CHANGE_BANNER,
   data: fromJS (data)
 });
 
-export const changeRecommendList = (data: IRecommend[]) => ({
+export const changeRecommendList = (data: ICRecommend[]) => ({
   type: actionTypes.CHANGE_RECOMMEND_LIST,
   data: fromJS (data)
 });

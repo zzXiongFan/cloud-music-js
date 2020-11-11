@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { SliderContainer } from './style';
 import "swiper/dist/css/swiper.css";
 import Swiper from 'swiper';
+// 引入顶级 api 类型
+import { Pick, IBanners} from '../../api/constants';
 
-export interface IBanner {
-  imageUrl: string
-}
+export type ICBanner = Pick<IBanners, 'imageUrl'>;
 
 interface IProps {
-  bannerList: Array<IBanner>
+  bannerList: Array<ICBanner>
 }
 
+// 从众多参数中分离出需要的参数
 function Slider({bannerList}: IProps) {
   // 创建 Swiper 实例
   const [ slideSwiper, setSlideSwiper ] = useState<Swiper | null>(null);

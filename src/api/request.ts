@@ -1,14 +1,13 @@
 import { axiosInstance } from './config';
-import { IBanner, IRecommend } from '../application/Recommend/store/constants';
 import * as respType from './constants'
 
 // 请求推荐列表: 进阶： 加入了类型参数
 export const getBannerRequest = () => {
-  return axiosInstance.get<{banners: IBanner[]}>('/banner');
+  return axiosInstance.get<{banners: respType.IBanners[]}>('/banner');
 }
 
 export const getRecommendListRequest = () => {
-  return axiosInstance.get<{result: IRecommend[]}>('/personalized');
+  return axiosInstance.get<{result: respType.IPersonalized[]}>('/personalized');
 }
 
 export const getHotSingerListRequest = (count: Number) => {

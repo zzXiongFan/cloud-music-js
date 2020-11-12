@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // 默认服务器 url
-export const baseUrl = 'http://localhost:3030';
+export const baseUrl = 'http://' + window.location.hostname + ':3030';
 
 const axiosInstance = axios.create({
   baseURL: baseUrl

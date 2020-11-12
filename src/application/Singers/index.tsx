@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 // 获取 mock 数据
 import { categoryTypes, alphaTypes} from '../../api/config';
 import Horizen from '../../baseUI/horizen-item';
@@ -28,14 +28,20 @@ import { AppState } from '../../store/reducer';
 import Loading from '../../baseUI/loading';
 // 懒加载
 import LazyLoad, { forceCheck } from 'react-lazyload';
+// 导入模拟 redux
+import { CategoryDataContext, CHANGE_ALPHA, CHANGE_CATEGORY } from './data';
 
 function Singers() {
   
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
 
+  const { data, dispatch_1 } = useContext(CategoryDataContext);
+  const { category, alpha} = data.toJS();
+
   // 获取状态
-  const { alpha, category, singerList, enterLoading, pullUpLoading, pullDownLoading, pageCount } = useSelector<AppState, IStateJS>(state => ({
+  // const { alpha, category, singerList, enterLoading, pullUpLoading, pullDownLoading, pageCount } = useSelector<AppState, IStateJS>(state => ({
+  const { singerList, enterLoading, pullUpLoading, pullDownLoading, pageCount } = useSelector<AppState, IStateJS>(state => ({
     alpha: state.getIn(['singers', 'alpha']),
     category: state.getIn(['singers', 'category']),
     singerList: state.getIn(['singers', 'singerList']),
@@ -54,7 +60,7 @@ function Singers() {
   // 捕获类别选项
   const handleUpdateCategory = (newVal) => {
     if(category === newVal) return;
-    dispatch(changeCategory(newVal));
+    dispatch_1( {type: CHANGE_CATEGORY, data: newVal} );
     dispatch(getSingerList());
     (scrollRef.current as any).refresh();
   }
@@ -62,7 +68,7 @@ function Singers() {
   // 捕获首字母选项
   const handleUpdateAlpha = (newVal) => {
     if(alpha === newVal) return;
-    dispatch(changeAlpha(newVal));
+    dispatch_1( {type: CHANGE_ALPHA, data: newVal} );
     dispatch(getSingerList());
     (scrollRef.current as any).refresh();
   };

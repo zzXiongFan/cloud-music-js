@@ -9,6 +9,8 @@ import route from './routes/index';
 // 引入 dedux 
 import store from './store/index';
 import { Provider } from 'react-redux';
+// 导入模拟的 redux
+import { Data } from './application/Singers/data';
 
 
 const App: React.FC<{}> = () => {
@@ -18,7 +20,9 @@ const App: React.FC<{}> = () => {
         <GlobalStyle />
         <IconStyle />
         {/* 此处类型判断有点问题：TODO：解决 router 类型化的问题 */}
-        { renderRoutes(route as RouteConfig[]) }
+        <Data>
+          { renderRoutes(route as RouteConfig[]) }
+        </Data>
       </HashRouter>
     </Provider>
   )
